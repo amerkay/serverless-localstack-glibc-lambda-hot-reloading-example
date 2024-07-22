@@ -60,3 +60,6 @@ custom:
     lambda:
       mountCode: true # <<<
 ```
+
+## TODOs:
+- [ ] Make sure online deployment works correctly.
