@@ -1,9 +1,9 @@
-import sys
 import os
 
-# import subprocess
+import sys
 import glob
 
+# for hot-reload on localstack
 sys.path.insert(0, glob.glob(".venv/lib/python*/site-packages")[0])
 
 import plivo
