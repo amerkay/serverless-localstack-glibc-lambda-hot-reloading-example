@@ -16,5 +16,5 @@ __pycache__/
 *.pyi
 *.egg-info/
 
-venv/
+.venv/
 .localstack_volume/
