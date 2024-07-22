@@ -1,0 +1,58 @@
+service: sn-number-masking
+
+provider:
+  name: aws
+  runtime: python3.10
+  stage: ${opt:stage, 'dev'}
+  region: "us-west-2"
+  environment:
+    PLIVO_AUTH_ID: ${env:PLIVO_AUTH_ID}
+    PLIVO_AUTH_TOKEN: ${env:PLIVO_AUTH_TOKEN}
+
+functions:
+  test:
+    handler: src/handlers/test.handler
+    events:
+      - http:
+          path: test
+          method: post
+
+plugins:
+  - serverless-python-requirements
+  - serverless-localstack
+
+package:
+  individually: false
+  exclude:
+    - node_modules/**
+    - .git/**
+    - .serverless/**
+    - .vscode/**
+    - .localstack_volume/**
+    - Archive.zip
+    - .nvmrc
+    - .env
+
+custom:
+  localstack:
+    # debug: true
+    stages:
+      - local
+    # See https://docs.localstack.cloud/user-guide/lambda-tools/hot-reloading/
+    autostart: true
+    lambda:
+      mountCode: true
+
+  pythonRequirements:
+    dockerizePip: false
+    useDownloadCache: true
+    useStaticCache: false
+    # This is important. See README.md.
+    pipCmdExtraArgs: ["--platform manylinux2014_x86_64", "--only-binary=:all:"]
+    slim: true
+    noDeploy:
+      - pytest
+      - boto3
+      - botocore
+      - pip
+      - setuptools
