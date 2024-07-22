@@ -22,4 +22,4 @@ services:
     command:
       - "http"
       - "--domain=${NGROK_DOMAIN}"
-      - "3000"
+      - "4566"
