@@ -1,7 +1,3 @@
-# For hot-reload
-# awslocal lambda create-function --function-name create_burner_number --code S3Bucket="hot-reload",S3Key="${PWD}" --handler src/handlers/create_burner_number.handler --runtime python3.10 --role arn:aws:iam::000000000000:role/lambda-ex
-
-
 import sys
 import os
 
