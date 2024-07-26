@@ -38,6 +38,8 @@ serverless deploy --stage local
 curl -X POST http://localhost:4566/restapis/apiid123/local/_user_request_/test   -H "Content-Type: application/json"   -d '{"real_number": "+16505604560"}' | jq
 ```
 
+> Notice, we setup a static ID so the URLs don't keep changing: `apiid123`.
+
 ---
 
 ### Making sure the .venv is in the PYTHONPATH
