@@ -8,6 +8,25 @@ provider:
   environment:
     PLIVO_AUTH_ID: ${env:PLIVO_AUTH_ID}
     PLIVO_AUTH_TOKEN: ${env:PLIVO_AUTH_TOKEN}
+  # Defined to keep the API Gateway ID static
+  apiGateway:
+    restApiId:
+      Ref: ApiGatewayRestApi
+    restApiRootResourceId:
+      Fn::GetAtt:
+        - ApiGatewayRestApi
+        - RootResourceId
+
+resources:
+  Resources:
+    # Keep the API Gateway ID static
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: ${self:service}-${self:provider.stage}
+        Tags:
+          - Key: _custom_id_
+            Value: apiid123
 
 functions:
   test:

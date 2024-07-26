@@ -9,7 +9,7 @@ services:
       # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
       - DEBUG=true
       - SERVICES=dynamodb,lambda,cloudformation,logs,iam,apigateway
-      - LAMBDA_REMOTE_DOCKER=false
+      # - LAMBDA_REMOTE_DOCKER=false
     volumes:
       - "${LOCALSTACK_VOLUME_DIR:-./.localstack_volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
