@@ -11,7 +11,7 @@ services:
       - SERVICES=dynamodb,lambda,cloudformation,logs,iam,apigateway
       # - LAMBDA_REMOTE_DOCKER=false
     volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./.localstack_volume}:/var/lib/localstack"
+      - "localstack_data:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   ngrok:
@@ -23,3 +23,6 @@ services:
       - "http"
       - "--domain=${NGROK_DOMAIN}"
       - "4566"
+
+volumes:
+  localstack_data:

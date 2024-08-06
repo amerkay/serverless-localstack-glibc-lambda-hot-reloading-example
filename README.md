@@ -13,7 +13,7 @@ docker compose up
 3. Create a virtual environment in the project root directory:
 ```sh
 # this must match the in serverless.yml
-python3.10 -m venv .venv
+python3.11 -m venv .venv
 
 # activate the virtual environment we just created
 source .venv/bin/activate

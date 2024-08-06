@@ -2,7 +2,7 @@ service: sn-number-masking
 
 provider:
   name: aws
-  runtime: python3.10
+  runtime: python3.11
   stage: ${opt:stage, 'dev'}
   region: "us-west-2"
   environment:
@@ -61,6 +61,11 @@ custom:
     autostart: true
     lambda:
       mountCode: true
+      mountCodeExcludePaths:
+        - .localstack_volume/**
+        - node_modules/**
+        - .git/**
+        - .serverless/**
 
   pythonRequirements:
     dockerizePip: false
