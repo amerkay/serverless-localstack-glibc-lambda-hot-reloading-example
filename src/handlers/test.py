@@ -4,13 +4,13 @@ import plivo
 
 
 #####
-# Test the endpoint (DON'T FORGET to replace /restapis/xxxx with your API Gateway ID)
+# Test the endpoint:
 #
-# curl -X POST http://localhost:4566/restapis/20rox9lnk7/local/_user_request_/test -H "Content-Type: application/json" -d '{"real_number": "16505604560"}' | jq
+# curl -X POST http://localhost:4566/restapis/apiid123/local/_user_request_/test -H "Content-Type: application/json" -d '{"real_number": "16505604560"}' | jq
 #
 #
 # OR using ngrok:
-# curl -X POST https://earwig-champion-broadly.ngrok-free.app/restapis/20rox9lnk7/local/_user_request_/test -H "Content-Type: application/json" -d '{"real_number": "16505604560"}' | jq
+# curl -X POST https://earwig-champion-broadly.ngrok-free.app/restapis/apiid123/local/_user_request_/test -H "Content-Type: application/json" -d '{"real_number": "16505604560"}' | jq
 #####
 def handler(event, context):
     try:
